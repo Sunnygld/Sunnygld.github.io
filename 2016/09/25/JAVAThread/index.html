@@ -25,7 +25,7 @@
 创建Runnable接口实现类的对象。
 创建一个Thread类的对象，需要封装前面Runnable接口实现类的对象。（接口可以实现多继承）
 调用Thread对象的start()方法，启动线程">
-<meta property="og:updated_time" content="2016-09-25T06:27:13.119Z">
+<meta property="og:updated_time" content="2016-10-23T06:48:01.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java线程总结">
 <meta name="twitter:description" content="JAVA线程总结创建线程的两种方法通过实现Runnable接口线程创建
@@ -54,7 +54,7 @@
 				<h1 class="site-name"><a href="/" title="Gld&#39;s blog">Gld&#39;s blog</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -68,7 +68,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:gongly.cn">
 					</form>
 					
@@ -91,14 +91,14 @@
 		<a href="/about" title="GLD" target="_blank" itemprop="author">GLD</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-25T10:40:15.000Z" itemprop="datePublished"> 發表於 2016-09-25</time>
+    <time datetime="2016-09-25T10:40:15.000Z" itemprop="datePublished"> Published 2016-09-25</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA线程总结"><span class="toc-number">1.</span> <span class="toc-text">JAVA线程总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建线程的两种方法"><span class="toc-number">1.1.</span> <span class="toc-text">创建线程的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过实现Runnable接口线程创建"><span class="toc-number">1.1.1.</span> <span class="toc-text">通过实现Runnable接口线程创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过继承Thread类创建线程"><span class="toc-number">1.1.2.</span> <span class="toc-text">通过继承Thread类创建线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种方式的比较"><span class="toc-number">1.1.3.</span> <span class="toc-text">两种方式的比较</span></a></li></ol></li></ol></li></ol>
 		
@@ -127,6 +127,11 @@
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/java/">java</a>
+  </div>
 
 </div>
 
@@ -173,25 +178,33 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA线程总结"><span class="toc-number">1.</span> <span class="toc-text">JAVA线程总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建线程的两种方法"><span class="toc-number">1.1.</span> <span class="toc-text">创建线程的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过实现Runnable接口线程创建"><span class="toc-number">1.1.1.</span> <span class="toc-text">通过实现Runnable接口线程创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过继承Thread类创建线程"><span class="toc-number">1.1.2.</span> <span class="toc-text">通过继承Thread类创建线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种方式的比较"><span class="toc-number">1.1.3.</span> <span class="toc-text">两种方式的比较</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/java/" title="java">java<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法与数据结构/" title="算法与数据结构">算法与数据结构<sup>1</sup></a></li>
+			
 		
 			
 				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
@@ -202,7 +215,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -224,7 +237,7 @@
 
 
   <div class="rsspart">
-	<a href="undefined" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="undefined" target="_blank" title="rss">RSS</a>
 </div>
 
 </aside>
@@ -452,7 +465,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
