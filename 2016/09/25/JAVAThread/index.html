@@ -1,0 +1,439 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>java线程总结 | Gld&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="GLD">
+    
+
+    
+    <meta name="description" content="JAVA线程总结创建线程的两种方法通过实现Runnable接口线程创建
+定义一个类实现Runnable接口，重写接口中的run()方法。在run()方法中加入具体的任务代码或处理逻辑。
+创建Runnable接口实现类的对象。
+创建一个Thread类的对象，需要封装前面Runnable接口实现类的对象。（接口可以实现多继承）
+调用Thread对象的start()方法，启动线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java线程总结">
+<meta property="og:url" content="http://gongly.cn/2016/09/25/JAVAThread/index.html">
+<meta property="og:site_name" content="Gld's blog">
+<meta property="og:description" content="JAVA线程总结创建线程的两种方法通过实现Runnable接口线程创建
+定义一个类实现Runnable接口，重写接口中的run()方法。在run()方法中加入具体的任务代码或处理逻辑。
+创建Runnable接口实现类的对象。
+创建一个Thread类的对象，需要封装前面Runnable接口实现类的对象。（接口可以实现多继承）
+调用Thread对象的start()方法，启动线程">
+<meta property="og:updated_time" content="2016-09-25T06:27:13.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java线程总结">
+<meta name="twitter:description" content="JAVA线程总结创建线程的两种方法通过实现Runnable接口线程创建
+定义一个类实现Runnable接口，重写接口中的run()方法。在run()方法中加入具体的任务代码或处理逻辑。
+创建Runnable接口实现类的对象。
+创建一个Thread类的对象，需要封装前面Runnable接口实现类的对象。（接口可以实现多继承）
+调用Thread对象的start()方法，启动线程">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Gld&#39;s blog">Gld&#39;s blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:gongly.cn">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/25/JAVAThread/" title="java线程总结" itemprop="url">java线程总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="GLD" target="_blank" itemprop="author">GLD</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-25T10:40:15.000Z" itemprop="datePublished"> Published 2016-09-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA线程总结"><span class="toc-number">1.</span> <span class="toc-text">JAVA线程总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建线程的两种方法"><span class="toc-number">1.1.</span> <span class="toc-text">创建线程的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过实现Runnable接口线程创建"><span class="toc-number">1.1.1.</span> <span class="toc-text">通过实现Runnable接口线程创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过继承Thread类创建线程"><span class="toc-number">1.1.2.</span> <span class="toc-text">通过继承Thread类创建线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种方式的比较"><span class="toc-number">1.1.3.</span> <span class="toc-text">两种方式的比较</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="JAVA线程总结"><a href="#JAVA线程总结" class="headerlink" title="JAVA线程总结"></a>JAVA线程总结</h1><h2 id="创建线程的两种方法"><a href="#创建线程的两种方法" class="headerlink" title="创建线程的两种方法"></a>创建线程的两种方法</h2><h3 id="通过实现Runnable接口线程创建"><a href="#通过实现Runnable接口线程创建" class="headerlink" title="通过实现Runnable接口线程创建"></a>通过实现Runnable接口线程创建</h3><ol>
+<li>定义一个类实现Runnable接口，重写接口中的run()方法。在run()方法中加入具体的任务代码或处理逻辑。</li>
+<li>创建Runnable接口实现类的对象。</li>
+<li>创建一个Thread类的对象，需要封装前面Runnable接口实现类的对象。（接口可以实现多继承）</li>
+<li>调用Thread对象的start()方法，启动线程<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class TreadDemo1 implements Runnable &#123;  </div><div class="line">    private int countDown = 10;  </div><div class="line">    @Override  </div><div class="line">    // 在run方法中定义任务  </div><div class="line">    public void run() &#123;  </div><div class="line">        while (countDown-- &gt; 0) &#123;  </div><div class="line">            System.out.println(&quot;#&quot; + Thread.currentThread().getName() + &quot;(&quot;  </div><div class="line">                    + countDown + &quot;)&quot;);  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void main(String[] args) &#123;  </div><div class="line">        // Runnable中run方法是一个空方法，并不会产生任何线程行为，必须显式地将一个任务附着到线程上  </div><div class="line">        TreadDemo1 tt=new TreadDemo1();  </div><div class="line">        new Thread(tt).start();  </div><div class="line">        new Thread(tt).start();  </div><div class="line">        System.out.println(&quot;火箭发射前倒计时：&quot;);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行结果：<br>火箭发射前倒计时：<br>Thread-1(8)<br><br>Thread-1(7)<br><br>Thread-1(6)<br><br>Thread-1(5)<br><br>Thread-1(4)<br><br>Thread-1(3)<br><br>Thread-1(2)<br><br>Thread-1(1)<br><br>Thread-1(0)<br><br>Thread-0(9)<br></p>
+<h3 id="通过继承Thread类创建线程"><a href="#通过继承Thread类创建线程" class="headerlink" title="通过继承Thread类创建线程"></a>通过继承Thread类创建线程</h3><ol>
+<li>首先定义一个类去继承Thread父类，重写父类中的run()方法。在run()方法中加入具体的任务代码或处理逻辑。</li>
+<li>直接创建一个ThreadDemo2类的对象，也可以利用多态性，变量声明为父类的类型。</li>
+<li>调用start方法，线程t启动，隐含的调用run()方法。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class ThreadDemo2 extends Thread &#123;  </div><div class="line">    private int countDown = 10;  </div><div class="line">  </div><div class="line">    @Override  </div><div class="line">    // 在run方法中定义任务  </div><div class="line">    public void run() &#123;  </div><div class="line">        while (countDown-- &gt; 0) &#123;  </div><div class="line">            System.out.println(&quot;#&quot; + this.getName() + &quot;(&quot; + countDown + &quot;)&quot;);  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void main(String[] args) &#123;  </div><div class="line">        new ThreadDemo2().start();  </div><div class="line">        new ThreadDemo2().start();  </div><div class="line">        // 由于start方法迅速返回，所以main线程可以执行其他的操作,此时有两个独立的线程在并发运行  </div><div class="line">        System.out.println(&quot;火箭发射前倒计时：&quot;);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：<br><br>Thread-0(9)<br><br>Thread-0(8)<br><br>Thread-0(7)<br><br>Thread-0(6)<br><br>Thread-0(5)<br><br>Thread-0(4)<br><br>Thread-0(3)<br><br>Thread-0(2)<br><br>Thread-0(1)<br><br>Thread-0(0)<br>火箭发射前倒计时：<br><br>Thread-1(9)<br><br>Thread-1(8)<br><br>Thread-1(7)<br><br>Thread-1(6)<br><br>Thread-1(5)<br><br>Thread-1(4)<br><br>Thread-1(3)<br><br>Thread-1(2)<br><br>Thread-1(1)<br><br>Thread-1(0)</p>
+<h3 id="两种方式的比较"><a href="#两种方式的比较" class="headerlink" title="两种方式的比较"></a>两种方式的比较</h3><p>首先分析两种方式的输出结果，同样是创建了两个线程，为什么结果不一样呢？<br><br>使用实现Runnable接口方式创建线程可以共享同一个目标对象（TreadDemo1 tt=new TreadDemo1();），实现了多个相同线程处理同一份资源。<br><br><br>然后再看一段来自JDK的解释：<br><br>Runnable 接口应该由那些打算通过某一线程执行其实例的类来实现。类必须定义一个称为run 的无参数方法。<br>设计该接口的目的是为希望在活动时执行代码的对象提供一个公共协议。例如，Thread 类实现了Runnable。激活的意思是说某个线程已启动并且尚未停止。<br><br><br>此外，Runnable 为非 Thread 子类的类提供了一种激活方式。通过实例化某个Thread 实例并将自身作为运行目标，就可以运行实现 Runnable 的类而无需创建 Thread 的子类。大多数情况下，如果只想重写run() 方法，而不重写其他 Thread 方法，那么应使用 Runnable 接口。这很重要，因为除非程序员打算修改或增强类的基本行为，否则不应为该类创建子类。</p>
+<p>采用继承Thread类方式：<br><br>（1）优点：编写简单，如果需要访问当前线程，无需使用Thread.currentThread()方法，直接使用this，即可获得当前线程。<br><br>（2）缺点：因为线程类已经继承了Thread类，所以不能再继承其他的父类。<br>采用实现Runnable接口方式：<br><br>（1）优点：线程类只是实现了Runable接口，还可以继承其他的类。在这种方式下，可以多个线程共享同一个目标对象，所以非常适合多个相同线程来处理同一份资源的情况，从而可以将CPU代码和数据分开，形成清晰的模型，较好地体现了面向对象的思想。<br><br>（2）缺点：编程稍微复杂，如果需要访问当前线程，必须使用Thread.currentThread()方法。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://gongly.cn/2016/09/25/JAVAThread/" data-title="java线程总结 | Gld&#39;s blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/09/24/eclipse快捷键/"  title="eclipse">
+ <strong>下一篇：</strong><br/> 
+ <span>eclipse
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA线程总结"><span class="toc-number">1.</span> <span class="toc-text">JAVA线程总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建线程的两种方法"><span class="toc-number">1.1.</span> <span class="toc-text">创建线程的两种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过实现Runnable接口线程创建"><span class="toc-number">1.1.1.</span> <span class="toc-text">通过实现Runnable接口线程创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过继承Thread类创建线程"><span class="toc-number">1.1.2.</span> <span class="toc-text">通过继承Thread类创建线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种方式的比较"><span class="toc-number">1.1.3.</span> <span class="toc-text">两种方式的比较</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="undefined" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m GLD in China. <br/>
+			This is my blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/Sunnygld" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:gonglidi33@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
