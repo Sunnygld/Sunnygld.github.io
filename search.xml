@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[JAVA代码优化]]></title>
       <url>http://gongly.cn/2016/11/02/JAVA%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/</url>
-      <content type="html"><![CDATA[<p><a href="http://developer.51cto.com/art/201511/496263.htm" target="_blank" rel="external">原文连接!!!</a></p>
+      <content type="html"><![CDATA[<p><a href="http://developer.51cto.com/art/201511/496263.htm" target="_blank" rel="external">原文连接</a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>代码优化，一个很重要的课题。可能有些人觉得没用，一些细小的地方有什么好修改的，改与不改对于代码的运行效率有什么影响呢？</p>
 <p>这个问题我是这么考虑 的，就像大海里面的鲸鱼一样，它吃一条小虾米有用吗？没用，但是，吃的小虾米一多之后，鲸鱼就被喂饱了。代码优化也是一样，如果项目着眼于尽快无BUG上 线，那么此时可以抓大放小，代码的细节可以不精打细磨；但是如果有足够的时间开发、维护代码，这时候就必须考虑每个可以优化的细节了，一个一个细小的优化 点累积起来，对于代码的运行效率绝对是有提升的。</p>
 <a id="more"></a>
@@ -326,25 +326,12 @@
     </entry>
     
     <entry>
-      <title><![CDATA[markdown语法总结]]></title>
-      <url>http://gongly.cn/2016/10/23/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;留作参考</p>
+      <title><![CDATA[java位运算]]></title>
+      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
+      <content type="html"><![CDATA[<p>留作备忘</p>
 <a id="more"></a>
-<p><a href="http://blog.csdn.net/bendanban/article/details/44159903" target="_blank" rel="external">基本语法1</a></p>
-<ul>
-<li>使用标题</li>
-<li>加粗、斜体</li>
-<li>分割线</li>
-<li>列表</li>
-<li>引用</li>
-</ul>
-<p><a href="http://blog.csdn.net/bendanban/article/details/44179247" target="_blank" rel="external">基本语法2</a></p>
-<ul>
-<li>插入图片</li>
-<li>代码</li>
-<li>表格</li>
-<li>超链接</li>
-</ul>
+<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
+<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
 ]]></content>
     </entry>
     
@@ -364,12 +351,25 @@
     </entry>
     
     <entry>
-      <title><![CDATA[java位运算]]></title>
-      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
-      <content type="html"><![CDATA[<p>留作备忘</p>
+      <title><![CDATA[markdown语法总结]]></title>
+      <url>http://gongly.cn/2016/10/23/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;留作参考</p>
 <a id="more"></a>
-<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
-<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
+<p><a href="http://blog.csdn.net/bendanban/article/details/44159903" target="_blank" rel="external">基本语法1</a></p>
+<ul>
+<li>使用标题</li>
+<li>加粗、斜体</li>
+<li>分割线</li>
+<li>列表</li>
+<li>引用</li>
+</ul>
+<p><a href="http://blog.csdn.net/bendanban/article/details/44179247" target="_blank" rel="external">基本语法2</a></p>
+<ul>
+<li>插入图片</li>
+<li>代码</li>
+<li>表格</li>
+<li>超链接</li>
+</ul>
 ]]></content>
     </entry>
     
