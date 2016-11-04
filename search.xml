@@ -326,6 +326,16 @@
     </entry>
     
     <entry>
+      <title><![CDATA[java位运算]]></title>
+      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
+      <content type="html"><![CDATA[<p>留作备忘</p>
+<a id="more"></a>
+<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
+<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[markdown语法总结]]></title>
       <url>http://gongly.cn/2016/10/23/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;留作参考</p>
@@ -345,16 +355,6 @@
 <li>表格</li>
 <li>超链接</li>
 </ul>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[java位运算]]></title>
-      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
-      <content type="html"><![CDATA[<p>留作备忘</p>
-<a id="more"></a>
-<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
-<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
 ]]></content>
     </entry>
     
