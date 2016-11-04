@@ -225,7 +225,8 @@
     <entry>
       <title><![CDATA[JVM内存分配]]></title>
       <url>http://gongly.cn/2016/11/01/JVM%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</url>
-      <content type="html"><![CDATA[<h2 id="PCR-程序计数器-的了解与机制"><a href="#PCR-程序计数器-的了解与机制" class="headerlink" title="PCR(程序计数器)的了解与机制"></a>PCR(程序计数器)的了解与机制</h2><a id="more"></a>
+      <content type="html"><![CDATA[<h2 id="PCR-程序计数器-的了解与机制"><a href="#PCR-程序计数器-的了解与机制" class="headerlink" title="PCR(程序计数器)的了解与机制"></a>PCR(程序计数器)的了解与机制</h2><p><a href="http://www.jianshu.com/p/7ebbe102c1ae" target="_blank" rel="external">原文连接</a></p>
+<a id="more"></a>
 <p><img src="/img/javaJVM内存非配机制.jpg" alt="javaJVM内存非配机制"></p>
 <ul>
 <li><p>程序计数器可以看做是当前线程所执行的字节码的行号指示器。在JVM的概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令。</p>
