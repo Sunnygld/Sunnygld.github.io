@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[计算机底层知识]]></title>
+      <url>http://gongly.cn/2016/11/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86/</url>
+      <content type="html"><![CDATA[<h2 id="计算机底层知识"><a href="#计算机底层知识" class="headerlink" title="计算机底层知识"></a>计算机底层知识</h2><p><a href="http://blog.csdn.net/iter_zc/article/details/42644229" target="_blank" rel="external">计算机底层知识拾遗（一）理解虚拟内存机制</a></p>
+<p><a href="http://blog.csdn.net/wenzhou1219/article/details/17659485" target="_blank" rel="external">深入了解Windows句柄到底是什么</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[JAVA代码优化]]></title>
       <url>http://gongly.cn/2016/11/02/JAVA%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/</url>
       <content type="html"><![CDATA[<p><a href="http://developer.51cto.com/art/201511/496263.htm" target="_blank" rel="external">原文连接!!!</a></p>
@@ -326,16 +334,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[java位运算]]></title>
-      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
-      <content type="html"><![CDATA[<p>留作备忘</p>
-<a id="more"></a>
-<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
-<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[markdown语法总结]]></title>
       <url>http://gongly.cn/2016/10/23/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;留作参考</p>
@@ -374,6 +372,16 @@
     </entry>
     
     <entry>
+      <title><![CDATA[java位运算]]></title>
+      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
+      <content type="html"><![CDATA[<p>留作备忘</p>
+<a id="more"></a>
+<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
+<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[java线程总结]]></title>
       <url>http://gongly.cn/2016/09/25/JAVAThread/</url>
       <content type="html"><![CDATA[<h2 id="创建线程的两种方法"><a href="#创建线程的两种方法" class="headerlink" title="创建线程的两种方法"></a>创建线程的两种方法</h2><h3 id="通过实现Runnable接口线程创建"><a href="#通过实现Runnable接口线程创建" class="headerlink" title="通过实现Runnable接口线程创建"></a>通过实现Runnable接口线程创建</h3><ol>
@@ -394,14 +402,6 @@
 <p>运行结果：<br><br>Thread-0(9)<br><br>Thread-0(8)<br><br>Thread-0(7)<br><br>Thread-0(6)<br><br>Thread-0(5)<br><br>Thread-0(4)<br><br>Thread-0(3)<br><br>Thread-0(2)<br><br>Thread-0(1)<br><br>Thread-0(0)<br>火箭发射前倒计时：<br><br>Thread-1(9)<br><br>Thread-1(8)<br><br>Thread-1(7)<br><br>Thread-1(6)<br><br>Thread-1(5)<br><br>Thread-1(4)<br><br>Thread-1(3)<br><br>Thread-1(2)<br><br>Thread-1(1)<br><br>Thread-1(0)</p>
 <h3 id="两种方式的比较"><a href="#两种方式的比较" class="headerlink" title="两种方式的比较"></a>两种方式的比较</h3><p>首先分析两种方式的输出结果，同样是创建了两个线程，为什么结果不一样呢？<br><br>使用实现Runnable接口方式创建线程可以共享同一个目标对象（TreadDemo1 tt=new TreadDemo1();），实现了多个相同线程处理同一份资源。<br><br><br>然后再看一段来自JDK的解释：<br><br>Runnable 接口应该由那些打算通过某一线程执行其实例的类来实现。类必须定义一个称为run 的无参数方法。<br>设计该接口的目的是为希望在活动时执行代码的对象提供一个公共协议。例如，Thread 类实现了Runnable。激活的意思是说某个线程已启动并且尚未停止。<br><br><br>此外，Runnable 为非 Thread 子类的类提供了一种激活方式。通过实例化某个Thread 实例并将自身作为运行目标，就可以运行实现 Runnable 的类而无需创建 Thread 的子类。大多数情况下，如果只想重写run() 方法，而不重写其他 Thread 方法，那么应使用 Runnable 接口。这很重要，因为除非程序员打算修改或增强类的基本行为，否则不应为该类创建子类。</p>
 <p>采用继承Thread类方式：<br><br>（1）优点：编写简单，如果需要访问当前线程，无需使用Thread.currentThread()方法，直接使用this，即可获得当前线程。<br><br>（2）缺点：因为线程类已经继承了Thread类，所以不能再继承其他的父类。<br>采用实现Runnable接口方式：<br><br>（1）优点：线程类只是实现了Runable接口，还可以继承其他的类。在这种方式下，可以多个线程共享同一个目标对象，所以非常适合多个相同线程来处理同一份资源的情况，从而可以将CPU代码和数据分开，形成清晰的模型，较好地体现了面向对象的思想。<br><br>（2）缺点：编程稍微复杂，如果需要访问当前线程，必须使用Thread.currentThread()方法。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[计算机底层知识]]></title>
-      <url>http://gongly.cn/2016/09/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%95%E5%B1%82%E7%9F%A5%E8%AF%86/</url>
-      <content type="html"><![CDATA[<h2 id="计算机底层知识"><a href="#计算机底层知识" class="headerlink" title="计算机底层知识"></a>计算机底层知识</h2><p><a href="http://blog.csdn.net/iter_zc/article/details/42644229" target="_blank" rel="external">计算机底层知识拾遗（一）理解虚拟内存机制</a></p>
-<p><a href="http://blog.csdn.net/wenzhou1219/article/details/17659485" target="_blank" rel="external">深入了解Windows句柄到底是什么</a></p>
 ]]></content>
     </entry>
     
