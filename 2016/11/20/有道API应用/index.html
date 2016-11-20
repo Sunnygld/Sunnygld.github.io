@@ -1,0 +1,826 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="http," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="HTTP连接使用HttpClient进行对URL的发送">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有道API应用">
+<meta property="og:url" content="http://gongly.cn/2016/11/20/有道API应用/index.html">
+<meta property="og:site_name" content="Gld's blog">
+<meta property="og:description" content="HTTP连接使用HttpClient进行对URL的发送">
+<meta property="og:updated_time" content="2016-11-20T10:45:43.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有道API应用">
+<meta name="twitter:description" content="HTTP连接使用HttpClient进行对URL的发送">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://gongly.cn/2016/11/20/有道API应用/"/>
+
+
+  <title> 有道API应用 | Gld's blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?c5b275f3211bada54fe89b7af7e78a42";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Gld's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                有道API应用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/有道API应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/有道API应用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="HTTP连接"><a href="#HTTP连接" class="headerlink" title="HTTP连接"></a>HTTP连接</h2><p>使用HttpClient进行对URL的发送<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">Connect</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">try</span> &#123;</div><div class="line">		HttpClient client = <span class="keyword">new</span> DefaultHttpClient();</div><div class="line">		<span class="comment">// 创建get</span></div><div class="line"></div><div class="line">		String a = <span class="string">"http://fanyi.youdao.com/openapi.do?keyfrom=dverere&amp;key=2031067193&amp;type=data&amp;doctype=json&amp;version=1.1&amp;q="</span>;</div><div class="line"></div><div class="line">		<span class="comment">// String strUrl = URLEncoder.encode(strUrl1, "UTF-8");</span></div><div class="line"></div><div class="line">		String strUrl1 = a + ToTrans;</div><div class="line"></div><div class="line">		<span class="comment">// 查找了一些网上资料，说地址中涉及了特殊字符，如‘｜’‘&amp;’等。所以不能直接用String代替URI来访问。</span></div><div class="line">		<span class="comment">// 必须采用%0xXX方式来替代特殊字符。但这种办法不直观。所以只能先把String转成URL，再能过URL生成URI的方法来解决问题。</span></div><div class="line">		URL url = <span class="keyword">new</span> URL(strUrl1);</div><div class="line">		URI uri = <span class="keyword">new</span> URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), <span class="keyword">null</span>);</div><div class="line">		HttpGet httpget = <span class="keyword">new</span> HttpGet(uri);</div><div class="line"></div><div class="line">		<span class="comment">// System.out.println(url);</span></div><div class="line">		<span class="comment">// 服务端返回数据</span></div><div class="line">		HttpResponse response = client.execute(httpget);<span class="comment">// 发送 没有封装线程的对象</span></div><div class="line">														<span class="comment">// 就不需要回调</span></div><div class="line">		InputStream input = response.getEntity().getContent();</div><div class="line"></div><div class="line">		strResult = EntityUtils.toString(response.getEntity());</div><div class="line"></div><div class="line">		<span class="comment">//System.out.println(strResult);</span></div><div class="line"></div><div class="line">		input.close();</div><div class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> strResult;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>注意URL一直非法问题的解决方法</li>
+<li>同时此方法需要三个外部依赖包 apache-httpcomponents-httpclient,commons-logging-1.0.4,httpcore-4.2.2</li>
+</ul>
+<h2 id="GSON"><a href="#GSON" class="headerlink" title="GSON"></a>GSON</h2><p>使用GSON解析JSON数据</p>
+<p>首先需要自定义解析规则,网上也有很多网站提供在线的JSON解析,以下是对有道API的JSON数据的解析</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> List&lt;String&gt; translation;</div><div class="line">	<span class="keyword">private</span> String querye;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> errorCode;</div><div class="line">	<span class="keyword">private</span> Basic basic;</div><div class="line">	<span class="keyword">private</span> List&lt;Web&gt; web;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getTranslation</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> translation;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTranslation</span><span class="params">(List&lt;String&gt; translation)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.translation = translation;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getErrorCode</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> errorCode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setErrorCode</span><span class="params">(<span class="keyword">int</span> errorCode)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.errorCode = errorCode;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getQuerye</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> querye;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setQuerye</span><span class="params">(String querye)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.querye = querye;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> Basic <span class="title">getBasic</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> basic;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBasic</span><span class="params">(Basic basic)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.basic = basic;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> List&lt;Web&gt; <span class="title">getWeb</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> web;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeb</span><span class="params">(List&lt;Web&gt; web)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.web = web;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Basic</span> </span>&#123;</div><div class="line">		<span class="keyword">private</span> List&lt;String&gt; explains;</div><div class="line">		</div><div class="line">		<span class="comment">// private String us-phonetic;</span></div><div class="line">		<span class="keyword">private</span> String phonetic;</div><div class="line">		<span class="comment">//private String uk-phonetic;</span></div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> String <span class="title">getPhonetic</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">return</span> phonetic;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getExplains</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">return</span> explains;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setExplains</span><span class="params">(List&lt;String&gt; explains)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.explains = explains;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPhonetic</span><span class="params">(String phonetic)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.phonetic = phonetic;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">// @Override</span></div><div class="line">		<span class="comment">// public String toString() &#123;</span></div><div class="line">		<span class="comment">// return "basic:[explains = " + explains + ", phonetic = " + phonetic +</span></div><div class="line">		<span class="comment">// "]";</span></div><div class="line">		<span class="comment">// &#125;</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Web</span> </span>&#123;</div><div class="line">		<span class="keyword">private</span> List&lt;String&gt; value;</div><div class="line">		<span class="keyword">private</span> String key;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="comment">//return value.get(0);</span></div><div class="line">			<span class="keyword">return</span> value;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(List&lt;String&gt; value)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.value = value;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> String <span class="title">getKey</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">return</span> key;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setKey</span><span class="params">(String key)</span> </span>&#123;</div><div class="line">			<span class="keyword">this</span>.key = key;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>需要注意的是,GSON会通过生成对象的方式调用得到的数据,所以可以使用自定的泛型方法来实现对不同JSON数据的解析</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GsonUtil</span> </span>&#123;</div><div class="line">	<span class="comment">// 将Json数据解析成相应的映射对象</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">parseJsonWithGson</span><span class="params">(String jsonData, Class&lt;T&gt; type)</span> </span>&#123;</div><div class="line">		Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">		T result = gson.fromJson(jsonData, type);</div><div class="line">		<span class="keyword">return</span> result;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 将Json数组解析成相应的映射对象列表</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">parseJsonArrayWithGson</span><span class="params">(String jsonData, Class&lt;T&gt; type)</span> </span>&#123;</div><div class="line">		Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">		List&lt;T&gt; result = gson.fromJson(jsonData, <span class="keyword">new</span> TypeToken&lt;List&lt;T&gt;&gt;() &#123;</div><div class="line">		&#125;.getType());</div><div class="line">		<span class="keyword">return</span> result;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>也可以直接生成对象进行使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">		Person person = gson.fromJson(res, Person.class);</div></pre></td></tr></table></figure>
+<ul>
+<li>对于ListString与String类型之间转化的问题,直接使用return value.get(0)即可,value为<list>String类型.</list></li>
+<li>当然GSON同样需要外部依赖包作为支持:gson-2.2.4</li>
+</ul>
+<h2 id="ListString与String"><a href="#ListString与String" class="headerlink" title="ListString与String"></a>ListString与String</h2><p>当然也有其他的方法实现这个问题</p>
+<p><a href="http://blog.csdn.net/shareye1992/article/details/50036615" target="_blank" rel="external">原文链接</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">listToString</span><span class="params">(List&lt;String&gt; list)</span></span>&#123;</div><div class="line">	      <span class="keyword">if</span>(list==<span class="keyword">null</span>)&#123;</div><div class="line">	      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	   &#125;</div><div class="line">	   StringBuilder result = <span class="keyword">new</span> StringBuilder();</div><div class="line">	   <span class="keyword">boolean</span> first = <span class="keyword">true</span>;</div><div class="line">	   <span class="comment">//第一个前面不拼接","</span></div><div class="line">	   <span class="keyword">for</span>(String string :list) &#123;</div><div class="line">	      <span class="keyword">if</span>(first) &#123;</div><div class="line">	         first=<span class="keyword">false</span>;</div><div class="line">	      &#125;<span class="keyword">else</span>&#123;</div><div class="line">	         result.append(<span class="string">","</span>);</div><div class="line">	      &#125;</div><div class="line">	      result.append(string);</div><div class="line">	   &#125;</div><div class="line">	   <span class="keyword">return</span> result.toString();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>反过来也可以</li>
+</ul>
+<p>首先String类没有提供直接转换出List的功能,String提供了一个根据字符来分割字符串的功能，但是分割的结果是String[]类型的，如果我们需要的是String[]类型，那么正好直接使用，需要List可以使用如下的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">stringToList</span><span class="params">(String strs)</span></span>&#123;</div><div class="line">	String str[] = strs.split(<span class="string">","</span>);</div><div class="line">	<span class="keyword">return</span> Arrays.asList(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者获取String[]对象后自己迭代一遍后返回，但是有现成的方法，还是直接用吧！</p>
+<h2 id="键盘监听"><a href="#键盘监听" class="headerlink" title="键盘监听"></a>键盘监听</h2><p>通过KeyListener借口来实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">JButton jb;</div><div class="line">jb.addActionListener(<span class="keyword">this</span>);</div><div class="line"><span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">keyTyped</span><span class="params">(KeyEvent e)</span> </span>&#123;</div><div class="line">		<span class="comment">//按下某个键时调用此方法。</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">keyPressed</span><span class="params">(KeyEvent e)</span> </span>&#123;</div><div class="line">		<span class="comment">//释放某个键时调用此方法</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">keyReleased</span><span class="params">(KeyEvent e)</span> </span>&#123;</div><div class="line">		<span class="comment">//键入某个键时调用此方法。</span></div><div class="line">		<span class="keyword">if</span>(e.getKeyCode()==KeyEvent.VK_ENTER)&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="窗口居中"><a href="#窗口居中" class="headerlink" title="窗口居中"></a>窗口居中</h2><p>实现初始化窗口时,出现在屏幕中央的位置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">  Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();</div><div class="line"><span class="keyword">int</span> width = (<span class="keyword">int</span>)screensize.getWidth();</div><div class="line"><span class="keyword">int</span> height = (<span class="keyword">int</span>)screensize.getHeight();</div><div class="line">setLocation((width-<span class="number">300</span>)/<span class="number">2</span>,(height-<span class="number">200</span>)/<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http/" rel="tag">#http</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/04/计算机底层知识/" rel="next" title="计算机底层知识">
+                <i class="fa fa-chevron-left"></i> 计算机底层知识
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/20/有道API应用/"
+           data-title="有道API应用" data-url="http://gongly.cn/2016/11/20/有道API应用/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tree.jpg"
+               alt="龚李迪" />
+          <p class="site-author-name" itemprop="name">龚李迪</p>
+          <p class="site-description motion-element" itemprop="description">孤独是一个人的狂欢</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Sunnygld" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP连接"><span class="nav-number">1.</span> <span class="nav-text">HTTP连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GSON"><span class="nav-number">2.</span> <span class="nav-text">GSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListString与String"><span class="nav-number">3.</span> <span class="nav-text">ListString与String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#键盘监听"><span class="nav-number">4.</span> <span class="nav-text">键盘监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口居中"><span class="nav-number">5.</span> <span class="nav-text">窗口居中</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">龚李迪</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gongly"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
