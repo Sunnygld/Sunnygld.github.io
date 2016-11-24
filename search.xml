@@ -4,6 +4,17 @@
   
     
     <entry>
+      <title><![CDATA[UIT-GITHUB]]></title>
+      <url>http://gongly.cn/2016/11/24/GITHUB/</url>
+      <content type="html"><![CDATA[<h2 id="学长们的GITHUB"><a href="#学长们的GITHUB" class="headerlink" title="学长们的GITHUB"></a>学长们的GITHUB</h2><!--mroe-->
+<p><a href="https://github.com/clwater" target="_blank" rel="external">gengzhibo</a></p>
+<p><a href="https://github.com/UIT-Fighting" target="_blank" rel="external">UIT-Fighting</a></p>
+<p><a href="https://github.com/UIT-Training" target="_blank" rel="external">UIT分享区</a></p>
+<p><a href="https://github.com/hehonghui" target="_blank" rel="external">hehonghui</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[有道API应用]]></title>
       <url>http://gongly.cn/2016/11/20/%E6%9C%89%E9%81%93API%E5%BA%94%E7%94%A8/</url>
       <content type="html"><![CDATA[<h2 id="HTTP连接"><a href="#HTTP连接" class="headerlink" title="HTTP连接"></a>HTTP连接</h2><p>使用HttpClient进行对URL的发送<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">Connect</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">try</span> &#123;</div><div class="line">		HttpClient client = <span class="keyword">new</span> DefaultHttpClient();</div><div class="line">		<span class="comment">// 创建get</span></div><div class="line"></div><div class="line">		String a = <span class="string">"http://fanyi.youdao.com/openapi.do?keyfrom=dverere&amp;key=2031067193&amp;type=data&amp;doctype=json&amp;version=1.1&amp;q="</span>;</div><div class="line"></div><div class="line">		<span class="comment">// String strUrl = URLEncoder.encode(strUrl1, "UTF-8");</span></div><div class="line"></div><div class="line">		String strUrl1 = a + ToTrans;</div><div class="line"></div><div class="line">		<span class="comment">// 查找了一些网上资料，说地址中涉及了特殊字符，如‘｜’‘&amp;’等。所以不能直接用String代替URI来访问。</span></div><div class="line">		<span class="comment">// 必须采用%0xXX方式来替代特殊字符。但这种办法不直观。所以只能先把String转成URL，再能过URL生成URI的方法来解决问题。</span></div><div class="line">		URL url = <span class="keyword">new</span> URL(strUrl1);</div><div class="line">		URI uri = <span class="keyword">new</span> URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), <span class="keyword">null</span>);</div><div class="line">		HttpGet httpget = <span class="keyword">new</span> HttpGet(uri);</div><div class="line"></div><div class="line">		<span class="comment">// System.out.println(url);</span></div><div class="line">		<span class="comment">// 服务端返回数据</span></div><div class="line">		HttpResponse response = client.execute(httpget);<span class="comment">// 发送 没有封装线程的对象</span></div><div class="line">														<span class="comment">// 就不需要回调</span></div><div class="line">		InputStream input = response.getEntity().getContent();</div><div class="line"></div><div class="line">		strResult = EntityUtils.toString(response.getEntity());</div><div class="line"></div><div class="line">		<span class="comment">//System.out.println(strResult);</span></div><div class="line"></div><div class="line">		input.close();</div><div class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> strResult;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -372,16 +383,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[java位运算]]></title>
-      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
-      <content type="html"><![CDATA[<p>留作备忘</p>
-<a id="more"></a>
-<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
-<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[markdown语法总结]]></title>
       <url>http://gongly.cn/2016/10/23/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;留作参考</p>
@@ -401,6 +402,16 @@
 <li>表格</li>
 <li>超链接</li>
 </ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java位运算]]></title>
+      <url>http://gongly.cn/2016/10/23/java%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
+      <content type="html"><![CDATA[<p>留作备忘</p>
+<a id="more"></a>
+<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
+<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
 ]]></content>
     </entry>
     
