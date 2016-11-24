@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="markdown," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;留作参考">
+<meta name="description" content="回调就是在类A中调用B类中的某个方法C之后，当C处理完完之后再去调用A中的D方法
+原文链接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown语法总结">
-<meta property="og:url" content="http://gongly.cn/2016/10/23/markdown基本语法/index.html">
+<meta property="og:title" content="JAVA回调">
+<meta property="og:url" content="http://gongly.cn/2016/11/20/回调/index.html">
 <meta property="og:site_name" content="Gld's blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;留作参考">
-<meta property="og:updated_time" content="2016-10-25T15:17:20.744Z">
+<meta property="og:description" content="回调就是在类A中调用B类中的某个方法C之后，当C处理完完之后再去调用A中的D方法
+原文链接">
+<meta property="og:updated_time" content="2016-11-24T11:57:49.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="markdown语法总结">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;留作参考">
+<meta name="twitter:title" content="JAVA回调">
+<meta name="twitter:description" content="回调就是在类A中调用B类中的某个方法C之后，当C处理完完之后再去调用A中的D方法
+原文链接">
 
 
 
@@ -114,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://gongly.cn/2016/10/23/markdown基本语法/"/>
+  <link rel="canonical" href="http://gongly.cn/2016/11/20/回调/"/>
 
 
-  <title> markdown语法总结 | Gld's blog </title>
+  <title> JAVA回调 | Gld's blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +281,7 @@
             
             
               
-                markdown语法总结
+                JAVA回调
               
             
           </h1>
@@ -290,8 +293,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-23T00:00:00+08:00" content="2016-10-23">
-              2016-10-23
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
             </time>
           </span>
 
@@ -304,8 +307,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">markdown</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -320,8 +323,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/23/markdown基本语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/23/markdown基本语法/" itemprop="commentsCount"></span>
+                <a href="/2016/11/20/回调/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/回调/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -344,23 +347,16 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;留作参考</p>
+        <p>回调就是在类A中调用B类中的某个方法C之后，当C处理完完之后再去调用A中的D方法</p>
+<p><a href="http://www.jianshu.com/p/c0d17e4bbdbc" target="_blank" rel="external">原文链接</a></p>
 <a id="more"></a>
-<p><a href="http://blog.csdn.net/bendanban/article/details/44159903" target="_blank" rel="external">基本语法1</a></p>
-<ul>
-<li>使用标题</li>
-<li>加粗、斜体</li>
-<li>分割线</li>
-<li>列表</li>
-<li>引用</li>
-</ul>
-<p><a href="http://blog.csdn.net/bendanban/article/details/44179247" target="_blank" rel="external">基本语法2</a></p>
-<ul>
-<li>插入图片</li>
-<li>代码</li>
-<li>表格</li>
-<li>超链接</li>
-</ul>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallBack</span> </span>&#123;</div><div class="line">    <span class="comment">//实现回调的接口</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">(String qusetion)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="学生提问"><a href="#学生提问" class="headerlink" title="学生提问"></a>学生提问</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">CallBack</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Teacher teacher;</div><div class="line"></div><div class="line">    <span class="comment">//学生问老师问题</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">askTeacher</span><span class="params">(Teacher teacher,String question)</span></span>&#123;</div><div class="line"></div><div class="line">        teacher.receive(<span class="keyword">this</span>, question);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//得到老师的回复</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">(String answer)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">        System.out.println(<span class="string">"The answer is"</span>+answer);</div><div class="line">        </div><div class="line">        String o=<span class="string">"sdsds"</span>;</div><div class="line">        o.equals(<span class="string">"sdasd"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//学生做别的事情</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"play...."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="老师回答"><a href="#老师回答" class="headerlink" title="老师回答"></a>老师回答</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receive</span><span class="params">(CallBack callBack,String question)</span></span>&#123;</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"The question is "</span>+question);</div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">                <span class="comment">//do other things</span></div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="comment">//老师忙完之后回复学生</span></div><div class="line">                    Thread.sleep(<span class="number">4096</span>);</div><div class="line">                    callBack.response(<span class="string">"2"</span>);</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;).start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">        Student student=<span class="keyword">new</span> Student();</div><div class="line">        Teacher teacher=<span class="keyword">new</span> Teacher();</div><div class="line">        student.askTeacher(teacher,<span class="string">"1+1=?"</span>);</div><div class="line">        student.play();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>The question is 1+1=?</p>
+<p>play….</p>
+<p>The answer is2</p>
 
       
     </div>
@@ -383,7 +379,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/markdown/" rel="tag">#markdown</a>
+            <a href="/tags/java/" rel="tag">#java</a>
           
         </div>
       
@@ -392,16 +388,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/25/JAVAThread/" rel="next" title="java线程总结">
-                <i class="fa fa-chevron-left"></i> java线程总结
+              <a href="/2016/11/20/有道API应用/" rel="next" title="有道API应用">
+                <i class="fa fa-chevron-left"></i> 有道API应用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/23/算法和数据结构的关系/" rel="prev" title="算法和数据结构的关系">
-                算法和数据结构的关系 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/24/GITHUB/" rel="prev" title="UIT-GITHUB">
+                UIT-GITHUB <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -428,8 +424,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/23/markdown基本语法/"
-           data-title="markdown语法总结" data-url="http://gongly.cn/2016/10/23/markdown基本语法/">
+      <div class="ds-thread" data-thread-key="2016/11/20/回调/"
+           data-title="JAVA回调" data-url="http://gongly.cn/2016/11/20/回调/">
       </div>
     
   </div>
@@ -531,7 +527,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学生提问"><span class="nav-number">2.</span> <span class="nav-text">学生提问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#老师回答"><span class="nav-number">3.</span> <span class="nav-text">老师回答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">5.</span> <span class="nav-text">结果</span></a></li></ol></div>
             
           </div>
         </section>
