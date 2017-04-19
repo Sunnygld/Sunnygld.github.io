@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="markdown," />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -84,16 +84,52 @@
 
 
 
-<meta name="description" content="留作备忘">
+<meta name="description" content="回调说明
+什么叫回调方法？
+
+所谓回调：就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法
+
+回调实现说明方法：
+
+
+
+Class A实现接口CallBack callback
+class A中包含一个class B的引用b
+class B有一个参数为callback的方法f(CallBack callback)
+A的对象a调用B的方法 f(CallBac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java位运算">
-<meta property="og:url" content="http://gongly.cn/2016/10/23/java位运算/index.html">
+<meta property="og:title" content="CallBack">
+<meta property="og:url" content="http://gongly.cn/2017/04/18/CallBack/index.html">
 <meta property="og:site_name" content="Gld's blog">
-<meta property="og:description" content="留作备忘">
-<meta property="og:updated_time" content="2016-10-25T15:17:20.743Z">
+<meta property="og:description" content="回调说明
+什么叫回调方法？
+
+所谓回调：就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法
+
+回调实现说明方法：
+
+
+
+Class A实现接口CallBack callback
+class A中包含一个class B的引用b
+class B有一个参数为callback的方法f(CallBack callback)
+A的对象a调用B的方法 f(CallBac">
+<meta property="og:updated_time" content="2017-04-18T12:28:00.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java位运算">
-<meta name="twitter:description" content="留作备忘">
+<meta name="twitter:title" content="CallBack">
+<meta name="twitter:description" content="回调说明
+什么叫回调方法？
+
+所谓回调：就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法
+
+回调实现说明方法：
+
+
+
+Class A实现接口CallBack callback
+class A中包含一个class B的引用b
+class B有一个参数为callback的方法f(CallBack callback)
+A的对象a调用B的方法 f(CallBac">
 
 
 
@@ -114,10 +150,10 @@
 
 
 
-  <link rel="canonical" href="http://gongly.cn/2016/10/23/java位运算/"/>
+  <link rel="canonical" href="http://gongly.cn/2017/04/18/CallBack/"/>
 
 
-  <title> java位运算 | Gld's blog </title>
+  <title> CallBack | Gld's blog </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +314,7 @@
             
             
               
-                java位运算
+                CallBack
               
             
           </h1>
@@ -290,8 +326,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-23T00:00:00+08:00" content="2016-10-23">
-              2016-10-23
+            <time itemprop="dateCreated" datetime="2017-04-18T00:00:00+08:00" content="2017-04-18">
+              2017-04-18
             </time>
           </span>
 
@@ -320,8 +356,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/23/java位运算/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/23/java位运算/" itemprop="commentsCount"></span>
+                <a href="/2017/04/18/CallBack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/18/CallBack/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -344,11 +380,42 @@
       
 
       
-        <p>留作备忘</p>
+        <h2 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h2><h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>什么叫回调方法？</p>
+</li>
+<li><p>所谓回调：就是A类中调用B类中的某个方法C，然后B类中反过来调用A类中的方法D，D这个方法就叫回调方法</p>
+</li>
+<li><p>回调实现说明方法：</p>
+</li>
+</ul>
+<ol>
+<li>Class A实现接口CallBack callback</li>
+<li>class A中包含一个class B的引用b</li>
+<li>class B有一个参数为callback的方法f(CallBack callback)</li>
+<li>A的对象a调用B的方法 f(CallBack callback)</li>
+<li>然后b就可以在f(CallBack callback)方法中调用A的方法</li>
+</ol>
 <a id="more"></a>
-<p><a href="https://zhidao.baidu.com/question/354545410.html?skiptype=2" target="_blank" rel="external">移位运算</a></p>
-<p><a href="http://blog.csdn.net/vebasan/article/details/6193916" target="_blank" rel="external">逻辑运算</a></p>
-
+<h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><ul>
+<li>学生A问老师B问题:1+1=?</li>
+<li>老师收到问题,先处理完自己的事</li>
+<li>学生发出问题之后,便开始玩耍</li>
+<li>老师之后回答问题:2</li>
+</ul>
+<ol>
+<li>回调函数</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">*回调接口</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> interf CallBack&#123;</div><div class="line"><span class="comment">/*</span></div><div class="line">*老师要回答问题时调用的函数,即回调函数</div><div class="line">*/</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">(String answer)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>学生A</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">*学生实现回调接口,即说明方法一</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">CallBack</span></span>&#123;</div><div class="line"><span class="comment">/*</span></div><div class="line">*学生持有老师的引用,即说明方法二</div><div class="line">*/</div><div class="line">    <span class="keyword">private</span> Teacher teacher;</div><div class="line"></div><div class="line">    <span class="comment">//学生问老师问题</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">askTeacher</span><span class="params">(Teacher teacher,String question)</span></span>&#123;</div><div class="line"><span class="comment">/*</span></div><div class="line">*A类中调用B类中的某个方法C</div><div class="line">*/</div><div class="line">        teacher.receive(<span class="keyword">this</span>, question);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//得到老师的回复</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">*老师知道答案后,调用此方法通知学生</div><div class="line">*/</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">(String answer)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">        System.out.println(<span class="string">"The answer is"</span>+answer);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//学生做别的事情</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"play...."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>老师B</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</div><div class="line"><span class="comment">/*</span></div><div class="line">*class B有一个参数为callback的方法f(CallBack callback),即说明方法三</div><div class="line">*/</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receive</span><span class="params">(CallBack callBack,String question)</span></span>&#123;</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"The question is "</span>+question);</div><div class="line"></div><div class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">                <span class="comment">//do other things</span></div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="comment">//老师忙完之后回复学生</span></div><div class="line">                    Thread.sleep(<span class="number">4096</span>);</div><div class="line"><span class="comment">/*</span></div><div class="line">*这就相当于B类反过来调用A的方法D</div><div class="line">*/</div><div class="line">                    callBack.response(<span class="string">"2"</span>);</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;).start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4.Test</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">        Student student=<span class="keyword">new</span> Student();</div><div class="line">        Teacher teacher=<span class="keyword">new</span> Teacher();</div><div class="line">        student.askTeacher(teacher,<span class="string">"1+1=?"</span>);</div><div class="line">        student.play();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -370,7 +437,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/markdown/" rel="tag">#markdown</a>
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -379,17 +446,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/23/markdown基本语法/" rel="next" title="markdown语法总结">
-                <i class="fa fa-chevron-left"></i> markdown语法总结
+              <a href="/2017/03/08/AS/" rel="next" title="AS使用记录">
+                <i class="fa fa-chevron-left"></i> AS使用记录
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/01/JVM内存分配/" rel="prev" title="JVM内存分配">
-                JVM内存分配 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -415,8 +478,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/23/java位运算/"
-           data-title="java位运算" data-url="http://gongly.cn/2016/10/23/java位运算/">
+      <div class="ds-thread" data-thread-key="2017/04/18/CallBack/"
+           data-title="CallBack" data-url="http://gongly.cn/2017/04/18/CallBack/">
       </div>
     
   </div>
@@ -518,7 +581,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#回调"><span class="nav-number">1.</span> <span class="nav-text">回调</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number"></span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#举例"><span class="nav-number"></span> <span class="nav-text">举例</span></a></div>
             
           </div>
         </section>
